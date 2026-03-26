@@ -1,8 +1,7 @@
-<div align="center" markdown>
-    # Template de Trabalhos Acadêmicos da UFPR
-    ## (Não Oficial)
-
-    [🇺🇸 English](https://github.com/chrispdobb/blob/main/README.md) | 🇧🇷 Português
+<div align="center">
+  <h1>Template de Trabalhos Acadêmicos da UFPR</h1>
+  <h2>(Não Oficial)</h2>
+  <p><a href="https://github.com/chrispdobb/blob/main/README.md">🇺🇸 English</a> | 🇧🇷 Português</p>
 </div>
 
 ## Início Rápido

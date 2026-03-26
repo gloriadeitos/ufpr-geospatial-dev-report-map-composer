@@ -1,8 +1,7 @@
-<div align="center" markdown>
-    # UFPR Academic Work Template
-    ## (Unofficial)
-
-    🇺🇸 English | [🇧🇷 Português](https://github.com/chrispdobb/blob/main/README.pt.md)
+<div align="center">
+  <h1>UFPR Academic Work Template</h1>
+  <h2>(Unofficial)</h2>
+  <p>🇺🇸 English | <a href="https://github.com/chrispdobb/blob/main/README.pt.md">🇧🇷 Português</a></p>
 </div>
 
 ## Note
