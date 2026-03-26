@@ -1,7 +1,6 @@
 <div align="center">
-  <h1>Template de Trabalhos Acadêmicos da UFPR</h1>
-  <h2>(Não Oficial)</h2>
-  <p><a href="https://github.com/chrispdobb/blob/main/README.md">🇺🇸 English</a> | 🇧🇷 Português</p>
+  <h1>Template de Trabalhos Acadêmicos da UFPR<br><small>(Não Oficial)</small></h1>
+  <p><a href="https://github.com/chrispdobb/ufpr-unofficial/blob/main/README.md">🇺🇸 English</a> | 🇧🇷 Português</p>
 </div>
 
 ## Início Rápido

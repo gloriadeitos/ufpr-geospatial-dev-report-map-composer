@@ -1,12 +1,11 @@
 <div align="center">
-  <h1>UFPR Academic Work Template</h1>
-  <h2>(Unofficial)</h2>
-  <p>🇺🇸 English | <a href="https://github.com/chrispdobb/blob/main/README.pt.md">🇧🇷 Português</a></p>
+  <h1>UFPR Academic Work Template<br><small>(Unofficial)</small></h1>
+  <p>🇺🇸 English | <a href="https://github.com/chrispdobb/ufpr-unofficial/blob/main/README.pt.md">🇧🇷 Português</a></p>
 </div>
 
 ## Note
-All code documentation of this package is in Brazilian Portuguese considering it is targeted at UFPR students, 
-a Brazilian university.
+All code documentation of this package is in Brazilian Portuguese considering it is targeted at students from a
+Brazilian university.
 
 ## Quick Start
 ```typst
