@@ -1,4 +1,4 @@
-#import "../src/lib.typ": *
+#import "@preview/ufpr-unofficial:2022.0.0": *
 
 #show: template.with(
   // Obligatory parameters

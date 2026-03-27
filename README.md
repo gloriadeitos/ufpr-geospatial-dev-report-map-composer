@@ -1,6 +1,6 @@
 <div align="center">
   <h1>UFPR Academic Work Template<br><small>(Unofficial)</small></h1>
-  <p>🇺🇸 English | <a href="https://github.com/chrispdobb/ufpr-unofficial/blob/main/README.pt.md">🇧🇷 Português</a></p>
+  <p>🇺🇸 English | <a href="README.pt.md">🇧🇷 Português</a></p>
 </div>
 
 ## Note
@@ -45,11 +45,17 @@ This template is based on the **ABNT Manual of Scientific Document Normalization
 
 **Versioning Scheme:**
 Version numbers follow the pattern `[manual-year].[major].[minor]`:
-- First number: Year of the ABNT manual edition
-- Second number: Major version (breaking changes)
-- Third number: Minor version (features, bug fixes)
+- `manual-year`: Year of the ABNT manual edition
+- `major`: Major version (breaking changes)
+- `minor`: Minor version (features, bug fixes)
 
 For example, `2022.0.0` indicates compatibility with the 2022 ABNT manual edition.
+
+## References
+
+MACHADO, Vila; MENGATTO, Angela Pereira de Farias; UEZU, Denis; STROPARO, Eliane Maria; ASSUMPÇÃO, Fabrício Silva; GONÇALVES, Lucas; ARAÚJO, Paula Carina de; ZULPO, Suzana. **Manual de normalização de documentos científicos de acordo com as normas da ABNT**. Curitiba: Sistema de Bibliotecas da UFPR, 2022.
+
+JUCA, Virgílio Nóbrega de. **csl-abnt**. GitHub. Disponível em: https://github.com/virgilinojuca/csl-abnt. Acesso em: 27 mar. 2026.
 
 ## Additional Functions
 
