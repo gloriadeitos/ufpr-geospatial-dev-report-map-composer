@@ -11,7 +11,7 @@ Brazilian university.
 ```typst
 #import "@preview/ufpr-unofficial:2022.0.0": *
 
-#show template.with(
+#show: template.with(
   // Obligatory parameters
   title: "Aplicação de Machine Learning para Classificação de Imagens de Satélite na Agricultura de Precisão",
   authors: ("Marina Silva Santos",),
