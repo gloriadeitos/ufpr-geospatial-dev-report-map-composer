@@ -1,4 +1,4 @@
-#import "../src/lib.typ" as ufpr
+#import "@preview/ufpr-unofficial:2022.1.0" as ufpr
 
 #show: ufpr.template.with(
   title: "Título",
