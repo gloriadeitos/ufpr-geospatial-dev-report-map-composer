@@ -56,6 +56,7 @@ ilustração.
   source: _default-source,
 ) = {
   if caption == "" {panic("Argumento caption é obrigatório e deve ter o título da ilustração.")}
+  counter(lower(supplement)).step()
   if lower(supplement) == "anexo" {
     _annex_list.update(l => l + ((
       body: body,
@@ -63,14 +64,14 @@ ilustração.
       source: source
     ),))
   } else {
-    block(breakable: false)[
+    align(center, block(breakable: false)[
       #figure(body,
         caption: caption,
         supplement: upper(supplement)
       )
       #v(1em, weak: true)
       #align(center, _note[FONTE: #_citation_handle(source).])
-    ]
+    ])
   }
 }
 
@@ -94,10 +95,11 @@ mais próximo possível do trecho a que se referem.
 ```
 
 - children (content): Conteúdo de cada célula da tabela.
-- columns (int): Número de colunas da tabela.
+- columns (int|array): Número de colunas da tabela ou seu espaçamento.
 - caption (content): Título da tabela, contendo sua descrição.
 - source (content): Fonte da tabela. Por padrão, esse valor é "Autor (_ano atual_)", mas pode ser uma
   referêcia à uma obra como ` [@obra] `.
+- breakable (bool): Indica se a tabela pode quebrar entre páginas quando o conteúdo for longo.
 - note (content|none): Notas da tabela, elemento opcional.
 - legend (content|none): Legenda da tabela, elemento opcional.
 */
@@ -105,29 +107,59 @@ mais próximo possível do trecho a que se referem.
   columns: 1,
   caption: "",
   source: _default-source,
+  breakable: false,
   note: none,
   legend: none,
   ..children
 ) = {
   if caption == "" {panic("Argumento caption é obrigatório e deve ter o título da tabela.")}
-  let cols = ()
-  for _ in range(columns) {cols.push(1fr)}
-  show figure.caption: it => align(left, it)
-  set par(first-line-indent: 0pt)
-  set text(size: 12pt)
-  block(breakable: false)[
-    #figure(
-      table(columns: cols, ..children),
+  let n-cols
+  let cols
+  if type(columns) == int {
+    n-cols = columns
+    cols = range(columns).map(_ => 1fr)
+  }
+  else if type(columns) == array {
+    n-cols = columns.len()
+    cols = columns
+  }
+  else {panic("Argumento columns deve ser um número inteiro ou uma array de medidas.")}
+
+  show figure: set block(breakable: breakable)
+  let caption-line = table.cell.with(colspan: n-cols, stroke: none, inset: (left: 0pt, top: 1em))
+  let footer = (caption-line[FONTE: #source],)
+  if note != none {footer.push(caption-line[NOTAS: #note])}
+  if legend != none {footer.push(caption-line[LEGENDA: #legend])}
+  counter("tabela").step()
+
+  context {
+    let break-counter = counter("tabela-" + counter("tabela").display())
+    let break-indicator = context {
+      let final = break-counter.final().at(0)
+      let idx = break-counter.get().at(0)
+      if final == 1 []
+      else if idx == 0 [ (continua)]
+      else if idx == final - 1 [ (conclusão)]
+      else [ (continuação)]
+      break-counter.step()
+    }
+
+    figure(
+      table(
+        columns: cols,
+        table.header(
+          caption-line(inset: (bottom: 1em, left: 0pt))[
+            TABELA #counter("tabela").display() -- #caption#break-indicator
+          ],
+          ..children.pos().slice(0, n-cols)
+        ),
+        ..children.pos().slice(n-cols),
+        ..footer
+      ),
       caption: caption,
       supplement: "TABELA"
     )
-    #v(1em, weak: true)
-    #_note[
-      FONTE: #_citation_handle(source).\
-      #if note != none [NOTA: #note\ ]
-      #if legend != none [LEGENDA: #legend]
-    ]
-  ]
+  }
 }
 
 /*
@@ -277,11 +309,11 @@ pré-textuais, textuais e pós-textuais.
 
   // Ilustrações
   set figure.caption(separator: [ -- ], position: top)
-  show figure.caption: it => _note(it)
+  show figure.caption: it => if it.kind == table {none} else {_note(it)}
   set figure(gap: 1em)
 
   // Referências
-  set bibliography(style: "abnt-autordata.csl", title: "Referências")
+  set bibliography(style: "abnt-autordata.csl", title: "Referências", full: true)
   set cite(form: "full")
   show ref: it => if it.element == none {footnote(it)} else {it}
 
@@ -298,17 +330,22 @@ pré-textuais, textuais e pós-textuais.
       left: if x == 0 {none} else {1pt},
       y: 1pt
     ),
-    align: (x, y) => if y == 0 {center} else {left}
+    align: (x, y) => if y == 1 {center} else {left}
   )
   set table.header(repeat: true)
   show table: it => _note(it)
-  show table.cell.where(y: 0): it => upper(it)
 
   // Menções
   show quote: it => block[
     #text(style: "italic", it)
     #align(right)[-- #it.attribution]
   ]
+
+  // Enumerações
+  set enum(
+    indent: 1.5cm,
+    numbering: "a)"
+  )
 
   // --- Páginas pré-textuais ---
   {
@@ -395,7 +432,7 @@ pré-textuais, textuais e pós-textuais.
     let _figure-outline(kind, title) = context {
       let entries = ()
       for f in query(figure.where(kind: kind)) {
-        entries.push[#f.supplement #f.counter.at(f.location()).first() --]
+        entries.push[#f.supplement #counter(lower(f.supplement.text)).at(f.location()).first() --]
         entries.push[#f.caption.body.text #box(width: 1fr, repeat[.])]
         entries.push[#counter(page).at(f.location()).first()]
       }
@@ -420,12 +457,12 @@ pré-textuais, textuais e pós-textuais.
   // Lista de Abreviaturas
   if abbreviations.len() != 0 {block[
     #align(center)[*LISTA DE ABREVIATURAS*]
-    #grid(columns: (auto, 1fr), column-gutter: 1em, ..abbreviations)
+    #grid(columns: (auto, 1fr), column-gutter: 1em, row-gutter: 1.5em, ..abbreviations)
   ]}
   // Lista de Siglas
   if acronyms.len() != 0 {block[
     #align(center)[*LISTA DE SIGLAS*]
-    #grid(columns: (auto, 1fr), column-gutter: 1em, ..acronyms)
+    #grid(columns: (auto, 1fr), column-gutter: 1em, row-gutter: 1.5em, ..acronyms)
   ]}
 
   // Sumário

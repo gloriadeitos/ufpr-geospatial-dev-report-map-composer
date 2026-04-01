@@ -70,13 +70,14 @@ Renders illustrations, figures, graphics, or annexes with captions and source at
 
 When `supplement` is `"anexo"`, the element is deferred and rendered at the end of the document in the appendices section instead of inline.
 
-### `sheet(columns: 1, caption: "", source: _default-source, note: none, legend: none, ..children)`
+### `sheet(columns: 1, caption: "", source: _default-source, breakable: false, note: none, legend: none, ..children)`
 Renders tables with captions, source attribution, optional notes, and legends.
 
 **Parameters:**
 - `columns`: Number of columns in the table
 - `caption`: Table title (required)
 - `source`: Source attribution (defaults to "Autor (current-year)")
+- `breakable`: Whether the table may split across pages when content is long
 - `note`: Optional note displayed below the table
 - `legend`: Optional legend displayed below the table
 - `..children`: Table cells content

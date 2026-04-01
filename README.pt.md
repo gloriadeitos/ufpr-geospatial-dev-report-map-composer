@@ -66,13 +66,14 @@ Renderiza ilustrações, figuras, gráficos ou anexos com legendas e atribuiçã
 
 Quando `supplement` é `"anexo"`, o elemento é adiado e renderizado no final do documento, na seção de apêndices, em vez de aparecer em linha.
 
-### `sheet(columns: 1, caption: "", source: _default-source, note: none, legend: none, ..children)`
+### `sheet(columns: 1, caption: "", source: _default-source, breakable: false, note: none, legend: none, ..children)`
 Renderiza tabelas com legenda, atribuição de fonte, notas opcionais e legenda explicativa.
 
 **Parâmetros:**
 - `columns`: Número de colunas da tabela
 - `caption`: Título da tabela (obrigatório)
 - `source`: Atribuição de fonte (padrão: "Autor (ano-atual)")
+- `breakable`: Indica se a tabela pode quebrar entre páginas quando o conteúdo for longo
 - `note`: Nota opcional exibida abaixo da tabela
 - `legend`: Legenda opcional exibida abaixo da tabela
 - `..children`: Conteúdo das células da tabela

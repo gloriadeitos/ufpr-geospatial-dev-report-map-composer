@@ -1,6 +1,6 @@
 [package]
 name = "ufpr-unofficial"
-version = "2022.0.0"
+version = "2022.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Christopher Pinheiro Dobb"]
 license = "Unlicense"
