@@ -9,7 +9,7 @@ Brazilian university.
 
 ## Quick Start
 ```typst
-#import "@preview/ufpr-unofficial:2022.0.0": *
+#import "@preview/ufpr-unofficial:2022.1.0": *
 
 #show: template.with(
   // Obligatory parameters
