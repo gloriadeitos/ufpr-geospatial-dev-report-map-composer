@@ -33,14 +33,14 @@ template/main.typ
 ### Opção 1: Extensão Tinymist no VS Code *(recomendado)*
 
 1. Instale a extensão [Tinymist](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) no VS Code
-2. Abra `template/main.typ`
-3. Use `Ctrl+Shift+P` → **Typst Preview** (ou clique no ícone de preview)
+2. Abra o arquivo `template/main.typ` no editor
+3. Com o `main.typ` aberto e selecionado, use `Ctrl+Shift+P` → **Typst Preview** (ou clique no ícone de preview que aparece no canto superior direito do editor)
 
 O preview atualiza automaticamente a cada salvo.
 
 ### Opção 2: Watch mode no terminal
 
-Abra o terminal na raiz do projeto e rode:
+Abra um terminal (PowerShell, CMD ou o terminal integrado do VS Code) na raiz do projeto e rode:
 
 ```powershell
 typst watch template/main.typ
@@ -52,7 +52,7 @@ Recompila automaticamente ao salvar. Abra o PDF gerado em `template/main.pdf` co
 
 ## Gerar o PDF
 
-Abra o terminal na raiz do projeto e rode:
+Abra um terminal (PowerShell, CMD ou o terminal integrado do VS Code) na raiz do projeto e rode:
 
 ```powershell
 typst compile template/main.typ
