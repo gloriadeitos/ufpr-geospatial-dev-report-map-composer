@@ -1,4 +1,4 @@
-# Relatório Técnico — ufpr-map-composer
+# Relatório Técnico: ufpr-map-composer
 
 Repositório com o relatório técnico do plugin QGIS [**ufpr-map-composer**](https://github.com/gloriadeitos/ufpr-map-composer), escrito em [Typst](https://typst.app/) seguindo as normas da ABNT.
 
@@ -8,7 +8,7 @@ Repositório com o relatório técnico do plugin QGIS [**ufpr-map-composer**](ht
 
 ## Pré-requisitos
 
-- [Typst](https://typst.app/) instalado na máquina
+- [Typst](https://typst.app/) instalado na máquina. Pode rodar em qualquer terminal, não precisa estar na pasta do projeto:
 
   ```powershell
   winget install --id Typst.Typst
@@ -30,7 +30,7 @@ template/main.typ
 
 ## Visualizar enquanto edita
 
-### Opção 1 — Extensão Tinymist no VS Code *(recomendado)*
+### Opção 1: Extensão Tinymist no VS Code *(recomendado)*
 
 1. Instale a extensão [Tinymist](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) no VS Code
 2. Abra `template/main.typ`
@@ -38,7 +38,9 @@ template/main.typ
 
 O preview atualiza automaticamente a cada salvo.
 
-### Opção 2 — Watch mode no terminal
+### Opção 2: Watch mode no terminal
+
+Abra o terminal na raiz do projeto e rode:
 
 ```powershell
 typst watch template/main.typ
@@ -49,6 +51,8 @@ Recompila automaticamente ao salvar. Abra o PDF gerado em `template/main.pdf` co
 ---
 
 ## Gerar o PDF
+
+Abra o terminal na raiz do projeto e rode:
 
 ```powershell
 typst compile template/main.typ
