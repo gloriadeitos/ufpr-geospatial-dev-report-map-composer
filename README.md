@@ -6,6 +6,19 @@ Repositório com o relatório técnico do plugin QGIS [**ufpr-map-composer**](ht
 
 ---
 
+## Metadados do relatório (report.env.example)
+
+O arquivo `report.env.example` centraliza os dados do relatório (título, autora, orientadora, disciplina, ano etc.) em um único lugar, facilitando a reutilização deste template em outros projetos.
+
+**Como usar:**
+1. Copie o arquivo: `cp report.env.example .env`
+2. Preencha os valores no `.env` com os dados do seu projeto
+3. Use os valores preenchidos para atualizar o bloco `#show: template.with(...)` no `template/main.typ`
+
+> O Typst não lê o `.env` automaticamente — ele serve só como referência organizada dos metadados.
+
+---
+
 ## Pré-requisitos
 
 - [Typst](https://typst.app/) instalado na máquina. Pode rodar em qualquer terminal, não precisa estar na pasta do projeto:
@@ -34,9 +47,9 @@ template/main.typ
 
 1. Instale a extensão [Tinymist](https://marketplace.visualstudio.com/items?itemName=myriad-dreamin.tinymist) no VS Code
 2. Abra o arquivo `template/main.typ` no editor
-3. Com o `main.typ` aberto e selecionado, use `Ctrl+Shift+P` → **Typst Preview** (ou clique no ícone de preview que aparece no canto superior direito do editor)
+3. Com o `main.typ` aberto e selecionado, use `Ctrl+Shift+P` → **Typst Preview: Preview Opened File in Browser** (em português: **Typst Preview: Visualizar Arquivo Aberto no Navegador**)
 
-O preview atualiza automaticamente a cada salvo.
+O preview abre no navegador com todas as páginas visíveis e atualiza automaticamente a cada salvo.
 
 ### Opção 2: Watch mode no terminal
 

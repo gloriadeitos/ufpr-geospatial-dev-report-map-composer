@@ -1,0 +1,28 @@
+# figuras.yml
+# Adicione entradas aqui para inserir figuras e tabelas no relatório.
+# A IA lê este arquivo e insere cada item ao final da seção indicada,
+# com legenda e fonte no padrão ABNT.
+#
+# tipo: figura | tabela | fotografia | gráfico | mapa
+# secao: nome exato da seção (ex: Arquitetura, Resultados, Tecnologias...)
+# src: nome do arquivo em template/ (ex: minha-imagem.png) ou URL completa
+# legenda: título da imagem conforme ABNT
+# fonte: "Autor (ano)" para imagem própria, ou nome do site/autor para externas
+#
+# Se usar URL, compilar com:
+#   & "caminho\typst.exe" compile template/main.typ --allow-net
+
+figuras:
+  - secao: Arquitetura
+    tipo: figura
+    src: https://exemplo.com/imagem.png
+    legenda: Exemplo de legenda da figura
+    fonte: Autor (2026)
+
+# Para adicionar mais, copie o bloco acima e preencha:
+#
+#  - secao:
+#    tipo:
+#    src:
+#    legenda:
+#    fonte:
